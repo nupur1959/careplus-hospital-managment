@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePlus Login</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eef5fb;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+    .login-card {
+      width: min(90%, 400px);
+      padding: 32px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px #0001;
+    }
+    h1 { text-align: center; color: #1677b8; }
+    p { text-align: center; color: #667085; }
+    label { display: block; margin: 16px 0 7px; }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccd6e0;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    button {
+      margin-top: 22px;
+      border: 0;
+      background: #1677b8;
+      color: white;
+      cursor: pointer;
+    }
+    #message { color: #c62828; }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <h1>CarePlus</h1>
+    <p>Hospital Management System</p>
+
+    <form id="loginForm">
+      <label for="role">Login As</label>
+      <select id="role" required>
+        <option value="">Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="doctor">Doctor</option>
+        <option value="patient">Patient</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input id="email" type="email" required
+             placeholder="Enter your email">
+
+      <label for="password">Password</label>
+      <input id="password" type="password" required
+             placeholder="Enter your password">
+
+      <button type="submit">Login</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

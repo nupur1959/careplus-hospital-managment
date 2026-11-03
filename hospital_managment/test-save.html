@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CarePlus Database Test</title>
+</head>
+<body>
+  <h2>CarePlus - Save Patient Test</h2>
+
+  <form id="patientForm">
+    <label>Patient Name</label><br>
+    <input name="full_name" required><br><br>
+
+    <label>Email</label><br>
+    <input name="email" type="email"><br><br>
+
+    <label>Phone</label><br>
+    <input name="phone"><br><br>
+
+    <button type="submit">Save Patient</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    document.getElementById("patientForm")
+      .addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const form = new FormData(this);
+        const data = Object.fromEntries(form.entries());
+        const message = document.getElementById("message");
+
+        message.textContent = "Saving...";
+
+        try {
+          const response = await fetch(
+            "api/index.php?entity=patients",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify(data)
+            }
+          );
+
+          const result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.error || "Save failed");
+          }
+
+          message.textContent =
+            "Patient saved successfully! ID: " + result.id;
+
+          this.reset();
+        } catch (error) {
+          message.textContent = "Error: " + error.message;
+        }
+      });
+  </script>
+</body>
+</html>

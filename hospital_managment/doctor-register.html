@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Registration</title>
+  <link rel="stylesheet" href="doctor.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Doctor Registration</h1>
+    <p>Create your doctor account</p>
+
+    <form id="registerForm">
+      <input id="name" type="text" placeholder="Full Name" required>
+      <input id="email" type="email" placeholder="Email Address" required>
+      <input id="phone" type="tel" placeholder="Phone Number" required>
+      <input id="specialization" type="text" placeholder="Specialization" required>
+      <input id="qualification" type="text" placeholder="Qualification" required>
+      <input id="password" type="password" placeholder="Create Password" required minlength="6">
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p>Already registered? <a href="login.html">Login here</a></p>
+    <p id="message"></p>
+  </div>
+
+  <script src="doctor.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePlus Hospital | Welcome</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #203247;
+            background: #f3f8fc;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: white;
+            border-bottom: 1px solid #e4edf4;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: #12304a;
+        }
+
+        .brand span {
+            color: #1677d2;
+        }
+
+        .topbar a {
+            color: #1677d2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            padding: 75px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #eaf5ff, #e8faf7);
+        }
+
+        .tagline {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: #dff8f4;
+            color: #087f83;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            margin: 20px 0 12px;
+            color: #12304a;
+            font-size: clamp(34px, 5vw, 56px);
+        }
+
+        h1 span {
+            color: #1677d2;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 17px;
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: auto;
+            padding: 55px 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #12304a;
+            font-size: 32px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .portal-card {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            background: white;
+            border: 1px solid #e4edf4;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(25, 65, 96, 0.07);
+        }
+
+        .portal-icon {
+            display: grid;
+            place-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: #e6f2ff;
+            font-size: 28px;
+        }
+
+        .patient .portal-icon {
+            background: #e0f9f3;
+        }
+
+        .portal-card h3 {
+            margin-bottom: 8px;
+            color: #12304a;
+            font-size: 25px;
+        }
+
+        .portal-card p {
+            min-height: 48px;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            margin-top: 18px;
+            padding: 15px 18px;
+            border: none;
+            border-radius: 10px;
+            background: #1677d2;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .button:hover {
+            background: #105da8;
+            transform: translateY(-2px);
+        }
+
+        .patient .button {
+            background: #0a9b89;
+        }
+
+        .patient .button:hover {
+            background: #087b6d;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .feature {
+            padding: 22px;
+            border: 1px solid #e4edf4;
+            border-radius: 14px;
+            background: white;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            color: #12304a;
+        }
+
+        .feature p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        footer {
+            padding: 25px 15px;
+            background: white;
+            border-top: 1px solid #e4edf4;
+            color: #64748b;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 650px) {
+            .portal-grid,
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 16px 20px;
+            }
+
+            .topbar a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 55px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">✚ Care<span>Plus</span></div>
+        <a href="#portals">Choose Your Portal ↓</a>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <div class="tagline">YOUR HEALTH, OUR PRIORITY</div>
+
+            <h1>Welcome to <span>CarePlus</span> Hospital</h1>
+
+            <p>
+                A simpler way to access hospital services.
+                Select your role to continue.
+            </p>
+        </section>
+
+        <section class="section" id="portals">
+            <h2>Choose Your Portal</h2>
+
+            <p class="section-description">
+                Select the option that matches your role.
+            </p>
+
+            <div class="portal-grid">
+
+                <div class="portal-card admin">
+                    <div class="portal-icon">🛡️</div>
+
+                    <h3>Admin Portal</h3>
+
+                    <p>
+                        Manage hospital operations and access
+                        the administration dashboard.
+                    </p>
+
+                    <a class="button" href="./admin.html">
+                        Continue as Admin →
+                    </a>
+                </div>
+
+                <div class="portal-card patient">
+                    <div class="portal-icon">👤</div>
+
+                    <h3>Patient Portal</h3>
+
+                    <p>
+                        Continue to the patient area to access
+                        available hospital services.
+                    </p>
+
+                    <a class="button" href="./user.html">
+                        Continue as Patient →
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Care, Made Accessible</h2>
+
+            <div class="features">
+                <div class="feature">
+                    <h3>Simple Navigation</h3>
+                    <p>
+                        Easily choose your portal from one
+                        convenient homepage.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Admin Access</h3>
+                    <p>
+                        Open your existing administration
+                        dashboard with one click.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Patient Access</h3>
+                    <p>
+                        Access the patient page when its HTML
+                        file is available in your project.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 CarePlus Hospital. All rights reserved.
+    </footer>
+
+</body>
+</html>

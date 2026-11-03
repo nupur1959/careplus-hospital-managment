@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePlus | Patient Portal</title>
+  <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-icon">✚</span><span>CarePlus<small>PATIENT PORTAL</small></span></div>
+      <div class="patient-mini">
+        <div class="avatar" id="sideAvatar">P</div>
+        <div><strong id="sideName">Patient</strong><small>Patient Account</small></div>
+      </div>
+      <nav id="navigation">
+        <button class="nav-link active" data-page="dashboard">▦ <span>Dashboard</span></button>
+        <button class="nav-link" data-page="book">＋ <span>Book Appointment</span></button>
+        <button class="nav-link" data-page="appointments">▣ <span>My Appointments</span></button>
+        <button class="nav-link" data-page="doctors">⚕ <span>Find Doctors</span></button>
+        <button class="nav-link" data-page="records">▤ <span>Medical Records</span></button>
+        <button class="nav-link" data-page="prescriptions">℞ <span>Prescriptions</span></button>
+        <button class="nav-link" data-page="billing">₹ <span>Billing & Payments</span></button>
+        <button class="nav-link" data-page="profile">♙ <span>My Profile</span></button>
+        <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <button class="logout" id="logoutBtn">↪ <span>Back to Welcome</span></button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div><small id="pageLabel">PATIENT PORTAL</small><h2 id="pageTitle">Dashboard</h2></div>
+        <div class="top-actions"><span class="online-dot"></span><span>Patient</span><div class="avatar small-avatar" id="topAvatar">P</div></div>
+      </header>
+
+      <div class="content">
+        <section class="page active" id="page-dashboard">
+          <div class="welcome-banner">
+            <div><span class="eyebrow">YOUR HEALTH, OUR PRIORITY</span><h1>Hello, <span id="welcomeName">Patient</span> 👋</h1><p>Manage your healthcare journey from one place.</p><button class="primary-btn" data-go="book">＋ Book an Appointment</button></div>
+            <div class="banner-art">✚</div>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-icon blue">▣</div><span>Upcoming Appointments</span><h2 id="statUpcoming">0</h2><small>Scheduled visits</small></div>
+            <div class="stat-card"><div class="stat-icon green">▤</div><span>Medical Records</span><h2 id="statRecords">0</h2><small>Saved records</small></div>
+            <div class="stat-card"><div class="stat-icon orange">₹</div><span>Pending Bills</span><h2 id="statBills">₹0</h2><small>Outstanding balance</small></div>
+            <div class="stat-card"><div class="stat-icon purple">℞</div><span>Prescriptions</span><h2 id="statPrescriptions">0</h2><small>Available prescriptions</small></div>
+          </div>
+          <div class="section-heading"><div><h3>Upcoming Appointments</h3><p>Your next scheduled visits</p></div><button class="text-btn" data-go="appointments">View all →</button></div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>Doctor</th><th>Department</th><th>Date & Time</th><th>Status</th></tr></thead><tbody id="dashboardAppointments"></tbody></table></div></div>
+          <div class="quick-grid">
+            <button class="quick-card" data-go="book"><span>＋</span><strong>Book Appointment</strong><small>Schedule a doctor visit</small></button>
+            <button class="quick-card" data-go="records"><span>▤</span><strong>Medical Records</strong><small>View your health documents</small></button>
+            <button class="quick-card" data-go="billing"><span>₹</span><strong>Pay Bills</strong><small>Check pending bills</small></button>
+          </div>
+        </section>
+
+        <section class="page" id="page-book">
+          <div class="section-heading"><div><h3>Book an Appointment</h3><p>Choose a doctor and a convenient time.</p></div></div>
+          <form class="panel form-panel" id="appointmentForm">
+            <div class="form-grid">
+              <label>Patient Name<input id="bookingName" required maxlength="70"></label>
+              <label>Phone Number<input id="bookingPhone" type="tel" required pattern="[0-9+() -]{7,18}" placeholder="Your contact number"></label>
+              <label>Department<select id="bookingDepartment" required><option value="">Select department</option><option>Cardiology</option><option>Neurology</option><option>Orthopedics</option><option>Dermatology</option><option>Pediatrics</option><option>General Medicine</option><option>Dental</option></select></label>
+              <label>Doctor<select id="bookingDoctor" required><option value="">Select doctor</option></select></label>
+              <label>Appointment Date<input id="bookingDate" type="date" required></label>
+              <label>Preferred Time<select id="bookingTime" required><option value="">Select time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:00 AM</option><option>12:00 PM</option><option>02:00 PM</option><option>03:00 PM</option><option>04:00 PM</option><option>05:00 PM</option></select></label>
+              <label class="full-width">Reason for Visit<textarea id="bookingReason" rows="3" maxlength="300" placeholder="Briefly describe your concern (optional)"></textarea></label>
+            </div>
+            <div class="form-actions"><button type="reset" class="secondary-btn">Clear Form</button><button type="submit" class="primary-btn">Confirm Appointment</button></div>
+          </form>
+        </section>
+
+        <section class="page" id="page-appointments">
+          <div class="section-heading"><div><h3>My Appointments</h3><p>View and manage your scheduled visits.</p></div><button class="primary-btn" data-go="book">＋ New Appointment</button></div>
+          <div class="toolbar"><input id="appointmentSearch" placeholder="Search doctor or department..."><select id="appointmentFilter"><option value="all">All statuses</option><option>Scheduled</option><option>Completed</option><option>Cancelled</option></select></div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Doctor</th><th>Department</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th></tr></thead><tbody id="appointmentsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-doctors">
+          <div class="section-heading"><div><h3>Find Your Doctor</h3><p>Explore our available specialists.</p></div></div>
+          <div class="toolbar"><input id="doctorSearch" placeholder="Search doctor or specialty..."></div>
+          <div class="doctor-grid" id="doctorsGrid"></div>
+        </section>
+
+        <section class="page" id="page-records">
+          <div class="section-heading"><div><h3>Medical Records</h3><p>Keep track of your health documents.</p></div><button class="primary-btn" id="addRecordBtn">＋ Add Record</button></div>
+          <div class="notice">Demo portal: records you add are saved in this browser only. Do not enter sensitive real medical information.</div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>Record ID</th><th>Record Title</th><th>Category</th><th>Date</th><th>Notes</th><th>Action</th></tr></thead><tbody id="recordsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-prescriptions">
+          <div class="section-heading"><div><h3>Prescriptions</h3><p>View your saved prescription information.</p></div><button class="primary-btn" id="addPrescriptionBtn">＋ Add Prescription</button></div>
+          <div class="notice">Demo data only. Follow medication instructions from your qualified healthcare professional.</div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>ID</th><th>Doctor</th><th>Medication</th><th>Instructions</th><th>Date</th><th>Action</th></tr></thead><tbody id="prescriptionsTable"></tbody></table></div></div>
+        </section>
+
+        <section class="page" id="page-billing">
+          <div class="section-heading"><div><h3>Billing & Payments</h3><p>Review your demo invoices and payment status.</p></div></div>
+          <div class="billing-summary"><div class="stat-card"><span>Total Bills</span><h2 id="totalBills">₹0</h2></div><div class="stat-card"><span>Paid</span><h2 id="paidBills">₹0</h2></div><div class="stat-card"><span>Pending</span><h2 id="pendingBills">₹0</h2></div></div>
+          <div class="panel"><div class="table-wrap"><table><thead><tr><th>Invoice</th><th>Description</th><th>Date</th><th>Amount</th><th>Status</th><th>Action</th></tr></thead><tbody id="billingTable"></tbody></table></div></div>
+          <p class="muted">The “Mark Paid” button is a local demo action, not a real payment transaction.</p>
+        </section>
+
+        <section class="page" id="page-profile">
+          <div class="section-heading"><div><h3>My Profile</h3><p>Update your personal details.</p></div></div>
+          <form class="panel form-panel" id="profileForm">
+            <div class="form-grid">
+              <label>Full Name<input id="profileName" required maxlength="70"></label>
+              <label>Email Address<input id="profileEmail" type="email" required maxlength="120"></label>
+              <label>Phone Number<input id="profilePhone" type="tel" pattern="[0-9+() -]{7,18}" required></label>
+              <label>Date of Birth<input id="profileDob" type="date"></label>
+              <label>Gender<select id="profileGender"><option value="">Prefer not to say</option><option>Female</option><option>Male</option><option>Other</option></select></label>
+              <label>Blood Group<select id="profileBlood"><option value="">Not specified</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></label>
+              <label class="full-width">Address<textarea id="profileAddress" rows="3" maxlength="250"></textarea></label>
+            </div>
+            <div class="form-actions"><button type="submit" class="primary-btn">Save Profile</button></div>
+          </form>
+        </section>
+
+        <section class="page" id="page-settings">
+          <div class="section-heading"><div><h3>Settings</h3><p>Customize your portal experience.</p></div></div>
+          <div class="panel settings-panel">
+            <div class="setting-row"><div><strong>Dark Mode</strong><p>Change the portal appearance.</p></div><label class="switch"><input type="checkbox" id="darkMode"><span></span></label></div>
+            <div class="setting-row"><div><strong>Appointment Reminders</strong><p>Demo preference saved in this browser.</p></div><label class="switch"><input type="checkbox" id="reminders" checked><span></span></label></div>
+            <div class="setting-row"><div><strong>Export My Data</strong><p>Download your demo records as a JSON file.</p></div><button class="secondary-btn" id="exportData">Export Data</button></div>
+            <div class="setting-row"><div><strong>Reset Demo Data</strong><p>Restore the initial sample records. This cannot be undone.</p></div><button class="danger-btn" id="resetData">Reset Demo</button></div>
+          </div>
+        </section>
+
+        <footer>© 2026 CarePlus Hospital · Patient Portal · Educational demo</footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-heading"><h3 id="modalTitle">Add Record</h3><button type="button" class="close-btn" id="closeModal">×</button></div>
+      <form id="modalForm"><div id="modalFields" class="modal-fields"></div><div class="form-actions"><button type="button" class="secondary-btn" id="cancelModal">Cancel</button><button type="submit" class="primary-btn">Save</button></div></form>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="patient.js"></script>
+</body>
+</html>
